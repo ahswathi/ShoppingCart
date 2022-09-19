@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { BiPlus } from "react-icons/bi";
+import { BiMinus } from "react-icons/bi";
 let ShoppingCart = () => {
     let [state, setState] = useState({
         products: [
@@ -82,6 +83,7 @@ let ShoppingCart = () => {
                 <div className="row">
                     <div className="col">
                         <p className="h3 text-success">Shopping Cart</p>
+                      
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
                 </div>
@@ -111,9 +113,13 @@ let ShoppingCart = () => {
                                                 <td>{product.name}</td>
                                                 <td>{product.price.toFixed(2)}</td>
                                                 <td>
-                                                    <i onClick = {() => decproduct(product.sno)} className="fa fa-minus-square mx-1"></i>
+                                                <BiMinus onClick = {() => decproduct(product.sno)} className="mx-1"/>  
+                                                {product.qty}
+                                                <BiPlus onClick = {() => incproduct(product.sno)} className="mx-1"/>   
+                                                {/*  
+                                                    <i onClick = {() => decproduct(product.sno)} className="fa-solid fa-plus mx-1"></i> 
                                                     {product.qty}
-                                                    <i onClick = {() => incproduct(product.sno)} className="fa fa-plus-square mx-1"></i>
+                                                    <i onClick = {() => incproduct(product.sno)} className="fa-solid fa-minus mx-1"></i>*/}
                                                 </td>
                                                 <td>{product.qty * product.price}</td>
                                             </tr>
